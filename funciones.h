@@ -83,4 +83,24 @@ void cargarIngredientes(ing *ingrediente)
     aux = *ingrediente;
 }
 
+int verificarIngredientes(ing *I)
+{
+    int estado;
+
+   if(I->agua==0)
+   {
+       if(I->cafe==0)
+       {
+           if(I->cacao==0)
+           {
+               if(I->leche==0)
+               {
+                   estado=0;
+               }
+           }
+       }
+   }
+
+}
+
 

@@ -25,7 +25,9 @@ do
         break;
     }
 
-    //estadoIngredientes = verificarIngredientes(ingrediente);
+    estadoIngredientes = verificarIngredientes(&ingrediente);
+
+    system("pause");
 }
 while(estadoIngredientes != 1);
 }
