@@ -25,45 +25,77 @@ void main()
             {
                 if(confirmar(opcion))
                 {
-
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
                 }
+                else
+                    break;
             }
             break;
         case 'B':
             if(haystock(ingrediente,opcion))
             {
-
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
             }
             break;
         case 'C':
             if(haystock(ingrediente,opcion))
             {
-
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
             }
             break;
         case 'D':
             if(haystock(ingrediente,opcion))
             {
-
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
             }
             break;
         case 'E':
             if(haystock(ingrediente,opcion))
             {
-
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
             }
             break;
         case 'F':
             if(haystock(ingrediente,opcion))
             {
-
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
             }
             break;
         }
 
         estadoIngredientes = verificarIngredientes(&ingrediente);
 
-        system("pause");
     }
     while(estadoIngredientes != 1);
 }

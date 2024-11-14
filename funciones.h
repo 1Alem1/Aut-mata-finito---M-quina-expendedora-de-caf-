@@ -147,32 +147,32 @@ int confirmar(char op)
         switch(op)
         {
         case 'A':
-            printf("Desea confirmar el pedido de cafe cortado?/n 1.Si/n2.No/n");
+            printf("Desea confirmar el pedido de cafe cortado?\n Importe: $1000\n1.Si\n2.No\n");
             fflush(stdin);
             scanf("%d",&conf);
             break;
         case 'B':
-            printf("Desea confirmar el pedido de cafe con leche?/n 1.Si/n2.No/n");
+            printf("Desea confirmar el pedido de cafe con leche?\n Importe: $1200 \n 1.Si\n2.No\n");
             fflush(stdin);
             scanf("%d",&conf);
             break;
         case 'C':
-            printf("Desea confirmar el pedido de cafe Capuchino?/n 1.Si/n2.No/n");
+            printf("Desea confirmar el pedido de cafe capuchino?\n Importe: $2000 \n1.Si\n.No\n");
             fflush(stdin);
             scanf("%d",&conf);
             break;
         case 'D':
-            printf("Desea confirmar el pedido de cafe Mocca?/n 1.Si/n2.No/n");
+            printf("Desea confirmar el pedido de cafe mocca?\n Importe: $2000\n1.Si\n2.No\n");
             fflush(stdin);
             scanf("%d",&conf);
             break;
         case 'E':
-            printf("Desea confirmar el pedido de cafe Latte?/n 1.Si/n2.No/n");
+            printf("Desea confirmar el pedido de cafe latte?\n Importe: $1500\n1.Si\n2.No\n");
             fflush(stdin);
             scanf("%d",&conf);
             break;
         case 'F':
-            printf("Desea confirmar el pedido de cafe Americano?/n 1.Si/n2.No/n");
+            printf("Desea confirmar el pedido de cafe americano?\n Importe: $1200\n1.Si\n2.No\n");
             fflush(stdin);
             scanf("%d",&conf);
             break;
@@ -182,9 +182,9 @@ int confirmar(char op)
 
 
     if(conf==1)
-            return 1;
-        else
-            return 0;
+        return 1;
+    else
+        return 0;
 }
 
 int verificarIngredientes(ing *I)
@@ -206,5 +206,98 @@ int verificarIngredientes(ing *I)
     }
 
 }
+
+int ingresarDinero(char op)
+{
+    int dinero = 0, totalIngresado = 0, precio;
+    const int precios[] = {1000, 1200, 2000, 2000, 1500, 1200}; // A, B, C, D, E, F
+    const char *productos[] =
+    {
+        "cafe cortado", "cafe con leche", "cafe capuchino",
+        "cafe mocca", "cafe latte", "cafe americano"
+    };
+
+    if (op >= 'A' && op <= 'F')
+    {
+        int indice = op - 'A';
+        precio = precios[indice];
+
+        printf("Pedido: %s\nImporte: $%d\n", productos[indice], precio);
+
+        while (totalIngresado < precio)
+        {
+            printf("Ingrese dinero:\n");
+            fflush(stdin);
+            scanf("%d", &dinero);
+
+
+            if (dinero != 100 && dinero != 200 && dinero != 500 && dinero != 1000 && dinero !=2000)
+            {
+                printf("Billete no aceptado. Intente con 100, 200, 500, 1000 o 2000.\n");
+                continue;
+            }
+
+            totalIngresado += dinero;
+
+            if (totalIngresado < precio)
+            {
+                printf("Dinero insuficiente. Faltan $%d.\n", precio - totalIngresado);
+            }
+        }
+        if (totalIngresado > precio)
+        {
+            printf("Gracias! Su cambio es $%d.\n", totalIngresado - precio);
+        }
+        else
+        {
+            printf("Gracias por su compra!\n");
+        }
+    }
+    else
+    {
+        printf("Opcion invalida.\n");
+    }
+
+    return totalIngresado;
+}
+
+void actualizarIngredientes(ing *I, char  op)
+{
+    switch(op)
+    {
+    case 'A':
+        (*I).agua -=1;
+        (*I).cafe -=1;
+        (*I).leche -=1;
+        break;
+    case 'B':
+        (*I).agua -=1;
+        (*I).cafe -=1;
+        (*I).leche -=2;
+        break;
+    case 'C':
+        (*I).agua -=1;
+        (*I).cafe -=2;
+        (*I).leche -=2;
+        (*I).cacao -=1;
+        break;
+    case 'D':
+        (*I).agua -=1;
+        (*I).cafe -=1;
+        (*I).leche -=2;
+        (*I).cacao -=2;
+        break;
+    case 'E':
+        (*I).agua -=1;
+        (*I).cafe -=2;
+        (*I).leche -=2;
+        break;
+    case 'F':
+        (*I).agua -=2;
+        (*I).cafe -=1;
+        break;
+    }
+}
+
 
 
