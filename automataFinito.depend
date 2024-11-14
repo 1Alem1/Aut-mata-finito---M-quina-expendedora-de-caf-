@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1731602691 source:c:\users\alema\onedrive\escritorio\automatafinito\main.c
+1731606450 source:c:\users\alema\onedrive\escritorio\automatafinito\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -7,7 +7,7 @@
 	"registros.h"
 	"funciones.h"
 
-1731602657 c:\users\alema\onedrive\escritorio\automatafinito\registros.h
+1731606378 c:\users\alema\onedrive\escritorio\automatafinito\registros.h
 
-1731602652 c:\users\alema\onedrive\escritorio\automatafinito\funciones.h
+1731606948 c:\users\alema\onedrive\escritorio\automatafinito\funciones.h
 

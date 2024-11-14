@@ -7,5 +7,25 @@
 
 void main()
 {
- printf("Holaaa");
+
+ing ingrediente;
+int estadoIngredientes;
+char opcion;
+
+cargarIngredientes(&ingrediente);
+
+do
+{
+    opcion = menu();
+
+    switch(opcion)
+    {
+    case 'A':
+        printf("A");
+        break;
+    }
+
+    //estadoIngredientes = verificarIngredientes(ingrediente);
+}
+while(estadoIngredientes != 1);
 }
