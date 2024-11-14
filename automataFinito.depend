@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1731602691 source:c:\users\alema\onedrive\escritorio\automatafinito\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"registros.h"
+	"funciones.h"
+
+1731602657 c:\users\alema\onedrive\escritorio\automatafinito\registros.h
+
+1731602652 c:\users\alema\onedrive\escritorio\automatafinito\funciones.h
+
