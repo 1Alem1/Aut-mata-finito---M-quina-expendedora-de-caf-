@@ -1,4 +1,6 @@
-char menu()
+#define MAX_STOCK 50
+
+char menu(ing I)
 {
     char a;
 
@@ -14,9 +16,21 @@ char menu()
                "\nF-Americano\n");
         fflush(stdin);
         scanf("%c", &a);
+        if(a=='*')
+        {
+            cargarIngredientes(&I);
+        }
     }
     while(a < 'A' || a > 'F');
     return a;
+}
+
+void inicializarmaquina(ing *I)
+{
+    (*I).agua=0;
+    (*I).cacao=0;
+    (*I).leche=0;
+    (*I).cafe=0;
 }
 
 int menuCarga()
@@ -25,7 +39,7 @@ int menuCarga()
 
     do
     {
-        printf("¿Que desea cargar?"
+        printf("Que desea cargar?"
                "\n1-Agua\n"
                "\n2-Cafe\n"
                "\n3-Cacao\n"
@@ -36,51 +50,96 @@ int menuCarga()
     }
     while(a < 0 || a > 4);
 
+
+
     return a;
 }
 
+
+
 void cargarIngredientes(ing *ingrediente)
 {
-    ing aux;
-    int opcion, cantidadAgua, cantidadCafe, cantidadCacao, cantidadLeche;
+    ing aux = *ingrediente; // Copia el estado actual de los ingredientes
+    int opcion, cantidad;
 
     do
     {
         opcion = menuCarga();
 
-        switch(opcion)
+        switch (opcion)
         {
-        case 1:
+        case 1: // Agua
             printf("Ingrese cantidad de agua a cargar\n");
             fflush(stdin);
-            scanf("%d", &cantidadAgua);
-            aux.agua += cantidadAgua;
+            scanf("%d", &cantidad);
+
+            if (aux.agua + cantidad > MAX_STOCK)
+            {
+                printf("Error: No se puede exceder el stock máximo de %d.\n", MAX_STOCK);
+            }
+            else
+            {
+                aux.agua += cantidad;
+            }
             break;
-        case 2:
+
+        case 2: // Café
             printf("Ingrese cantidad de cafe a cargar\n");
             fflush(stdin);
-            scanf("%d", &cantidadCafe);
-            aux.cafe += cantidadCafe;
+            scanf("%d", &cantidad);
+
+            if (aux.cafe + cantidad > MAX_STOCK)
+            {
+                printf("Error: No se puede exceder el stock máximo de %d.\n", MAX_STOCK);
+            }
+            else
+            {
+                aux.cafe += cantidad;
+            }
             break;
-        case 3:
+
+        case 3: // Cacao
             printf("Ingrese cantidad de cacao a cargar\n");
             fflush(stdin);
-            scanf("%d", &cantidadCacao);
-            aux.cacao += cantidadCacao;
+            scanf("%d", &cantidad);
+
+            if (aux.cacao + cantidad > MAX_STOCK)
+            {
+                printf("Error: No se puede exceder el stock máximo de %d.\n", MAX_STOCK);
+            }
+            else
+            {
+                aux.cacao += cantidad;
+            }
             break;
-        case 4:
+
+        case 4: // Leche
             printf("Ingrese cantidad de leche a cargar\n");
             fflush(stdin);
-            scanf("%d", &cantidadLeche);
-            aux.leche += cantidadLeche;
+            scanf("%d", &cantidad);
+
+            if (aux.leche + cantidad > MAX_STOCK)
+            {
+                printf("Error: No se puede exceder el stock máximo de %d.\n", MAX_STOCK);
+            }
+            else
+            {
+                aux.leche += cantidad;
+            }
             break;
+
         case 0:
             printf("Cerrando maquina...\n");
             break;
+
+        default:
+            printf("Opción inválida.\n");
         }
     }
-    while(opcion < 0 || opcion > 4);
-    aux = *ingrediente;
+    while (opcion != 0);
+
+    // Actualiza el estado de los ingredientes en la estructura principal
+    *ingrediente = aux;
 }
 
 int haystock(ing I,char op)
@@ -187,19 +246,26 @@ int confirmar(char op)
         return 0;
 }
 
-int verificarIngredientes(ing *I)
+int verificarIngredientes(ing I)// Hacer que compruebe si hay para hacer aunque sea 1 cafe.
 {
     int estado;
 
-    if(I->agua==0)
+    if(haystock(I,'A'))
     {
-        if(I->cafe==0)
+
+        if(haystock(I,'B'))
         {
-            if(I->cacao==0)
+            if(haystock(I,'C'))
             {
-                if(I->leche==0)
+                if(haystock(I,'D'))
                 {
-                    estado=0;
+                    if(haystock(I,'E'))
+                    {
+                        if(haystock(I,'F'))
+                        {
+                            estado=0;
+                        }
+                    }
                 }
             }
         }

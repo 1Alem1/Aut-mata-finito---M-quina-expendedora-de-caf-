@@ -10,92 +10,102 @@ void main()
 
     ing ingrediente;
     int estadoIngredientes;
+    inicializarmaquina(&ingrediente);
     char opcion;
 
-    cargarIngredientes(&ingrediente);
+
 
     do
     {
-        opcion = menu();
+        opcion = menu(ingrediente);
 
-        switch(opcion)
+        estadoIngredientes = verificarIngredientes(ingrediente);
+        if(estadoIngredientes!=0)
         {
-        case 'A':
-            if(haystock(ingrediente,opcion))
+            switch(opcion)
             {
-                if(confirmar(opcion))
+            case 'A':
+                if(haystock(ingrediente,opcion))
                 {
-                    ingresarDinero(opcion);
-                    actualizarIngredientes(&ingrediente, opcion);
+                    if(confirmar(opcion))
+                    {
+                        ingresarDinero(opcion);
+                        actualizarIngredientes(&ingrediente, opcion);
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
-            }
-            break;
-        case 'B':
-            if(haystock(ingrediente,opcion))
-            {
-                if(confirmar(opcion))
+                break;
+            case 'B':
+                if(haystock(ingrediente,opcion))
                 {
-                    ingresarDinero(opcion);
-                    actualizarIngredientes(&ingrediente, opcion);
+                    if(confirmar(opcion))
+                    {
+                        ingresarDinero(opcion);
+                        actualizarIngredientes(&ingrediente, opcion);
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
-            }
-            break;
-        case 'C':
-            if(haystock(ingrediente,opcion))
-            {
-                if(confirmar(opcion))
+                break;
+            case 'C':
+                if(haystock(ingrediente,opcion))
                 {
-                    ingresarDinero(opcion);
-                    actualizarIngredientes(&ingrediente, opcion);
+                    if(confirmar(opcion))
+                    {
+                        ingresarDinero(opcion);
+                        actualizarIngredientes(&ingrediente, opcion);
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
-            }
-            break;
-        case 'D':
-            if(haystock(ingrediente,opcion))
-            {
-                if(confirmar(opcion))
+                break;
+            case 'D':
+                if(haystock(ingrediente,opcion))
                 {
-                    ingresarDinero(opcion);
-                    actualizarIngredientes(&ingrediente, opcion);
+                    if(confirmar(opcion))
+                    {
+                        ingresarDinero(opcion);
+                        actualizarIngredientes(&ingrediente, opcion);
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
-            }
-            break;
-        case 'E':
-            if(haystock(ingrediente,opcion))
-            {
-                if(confirmar(opcion))
+                break;
+            case 'E':
+                if(haystock(ingrediente,opcion))
                 {
-                    ingresarDinero(opcion);
-                    actualizarIngredientes(&ingrediente, opcion);
+                    if(confirmar(opcion))
+                    {
+                        ingresarDinero(opcion);
+                        actualizarIngredientes(&ingrediente, opcion);
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
-            }
-            break;
-        case 'F':
-            if(haystock(ingrediente,opcion))
-            {
-                if(confirmar(opcion))
+                break;
+            case 'F':
+                if(haystock(ingrediente,opcion))
                 {
-                    ingresarDinero(opcion);
-                    actualizarIngredientes(&ingrediente, opcion);
+                    if(confirmar(opcion))
+                    {
+                        ingresarDinero(opcion);
+                        actualizarIngredientes(&ingrediente, opcion);
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
+                break;
+            case '*':
+                cargarIngredientes(&ingrediente);
             }
-            break;
         }
 
-        estadoIngredientes = verificarIngredientes(&ingrediente);
+
+
+
 
     }
-    while(estadoIngredientes != 1);
+    while(estadoIngredientes == 1);
+    printf("La maquina entra en modo reposo por falta de stock");
 }
