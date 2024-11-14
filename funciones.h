@@ -13,7 +13,7 @@ char menu()
                "\nE-Latte\n"
                "\nF-Americano\n");
         fflush(stdin);
-        scanf("%d", &a);
+        scanf("%c", &a);
     }
     while(a < 'A' || a > 'F');
     return a;
@@ -83,23 +83,127 @@ void cargarIngredientes(ing *ingrediente)
     aux = *ingrediente;
 }
 
+int haystock(ing I,char op)
+{
+    switch(op)
+    {
+    case 'A':
+        if(I.agua>=1&&I.cafe>=1&&I.leche>=1)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        break;
+    case 'B':
+        if(I.agua>=1&&I.cafe>=1&&I.leche>=2)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        break;
+    case 'C':
+        if(I.agua>=1&&I.cafe>=2&&I.leche>=2&&I.cacao>=1)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        break;
+    case 'D':
+        if(I.agua>=1&&I.cafe>=1&&I.leche>=2&&I.cacao>=2)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        break;
+    case 'E':
+        if(I.agua>1&&I.cafe>2&&I.leche>2)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        break;
+    case 'F':
+        if(I.agua>2&&I.cafe>1)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        break;
+    }
+}
+
+int confirmar(char op)
+{
+    int conf;
+
+    do
+    {
+        switch(op)
+        {
+        case 'A':
+            printf("Desea confirmar el pedido de cafe cortado?/n 1.Si/n2.No/n");
+            fflush(stdin);
+            scanf("%d",&conf);
+            break;
+        case 'B':
+            printf("Desea confirmar el pedido de cafe con leche?/n 1.Si/n2.No/n");
+            fflush(stdin);
+            scanf("%d",&conf);
+            break;
+        case 'C':
+            printf("Desea confirmar el pedido de cafe Capuchino?/n 1.Si/n2.No/n");
+            fflush(stdin);
+            scanf("%d",&conf);
+            break;
+        case 'D':
+            printf("Desea confirmar el pedido de cafe Mocca?/n 1.Si/n2.No/n");
+            fflush(stdin);
+            scanf("%d",&conf);
+            break;
+        case 'E':
+            printf("Desea confirmar el pedido de cafe Latte?/n 1.Si/n2.No/n");
+            fflush(stdin);
+            scanf("%d",&conf);
+            break;
+        case 'F':
+            printf("Desea confirmar el pedido de cafe Americano?/n 1.Si/n2.No/n");
+            fflush(stdin);
+            scanf("%d",&conf);
+            break;
+        }
+    }
+    while(conf<1||conf>2);
+
+
+    if(conf==1)
+            return 1;
+        else
+            return 0;
+}
+
 int verificarIngredientes(ing *I)
 {
     int estado;
 
-   if(I->agua==0)
-   {
-       if(I->cafe==0)
-       {
-           if(I->cacao==0)
-           {
-               if(I->leche==0)
-               {
-                   estado=0;
-               }
-           }
-       }
-   }
+    if(I->agua==0)
+    {
+        if(I->cafe==0)
+        {
+            if(I->cacao==0)
+            {
+                if(I->leche==0)
+                {
+                    estado=0;
+                }
+            }
+        }
+    }
 
 }
 
