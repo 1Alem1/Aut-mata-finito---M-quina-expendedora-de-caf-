@@ -1,6 +1,6 @@
 #define MAX_STOCK 50
 
-char menu(ing I)
+char menu(ing *I)
 {
     char a;
 
@@ -16,9 +16,11 @@ char menu(ing I)
                "\nF-Americano\n");
         fflush(stdin);
         scanf("%c", &a);
+        a = toupper(a);
         if(a=='*')
         {
-            cargarIngredientes(&I);
+            cargarIngredientes(I);
+            return '*';
         }
     }
     while(a < 'A' || a > 'F');
@@ -59,7 +61,7 @@ int menuCarga()
 
 void cargarIngredientes(ing *ingrediente)
 {
-    ing aux = *ingrediente; // Copia el estado actual de los ingredientes
+    ing aux = *ingrediente;
     int opcion, cantidad;
 
     do
@@ -138,7 +140,6 @@ void cargarIngredientes(ing *ingrediente)
     }
     while (opcion != 0);
 
-    // Actualiza el estado de los ingredientes en la estructura principal
     *ingrediente = aux;
 }
 
@@ -246,7 +247,7 @@ int confirmar(char op)
         return 0;
 }
 
-int verificarIngredientes(ing I)// Hacer que compruebe si hay para hacer aunque sea 1 cafe.
+int verificarIngredientes(ing I)
 {
     int estado;
 

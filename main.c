@@ -7,105 +7,135 @@
 
 void main()
 {
-
     ing ingrediente;
     int estadoIngredientes;
     inicializarmaquina(&ingrediente);
     char opcion;
 
-
-
     do
     {
-        opcion = menu(ingrediente);
+        printf("\nESTADO ACTUAL:\n");
+        printf("Agua: %d\n", ingrediente.agua);
+        printf("Cafe: %d\n", ingrediente.cafe);
+        printf("Leche: %d\n", ingrediente.leche);
+        printf("Cacao: %d\n", ingrediente.cacao);
 
-        estadoIngredientes = verificarIngredientes(ingrediente);
-        if(estadoIngredientes!=0)
+        opcion = menu(&ingrediente);
+
+        if(opcion == '*')
         {
-            switch(opcion)
-            {
-            case 'A':
-                if(haystock(ingrediente,opcion))
-                {
-                    if(confirmar(opcion))
-                    {
-                        ingresarDinero(opcion);
-                        actualizarIngredientes(&ingrediente, opcion);
-                    }
-                    else
-                        break;
-                }
-                break;
-            case 'B':
-                if(haystock(ingrediente,opcion))
-                {
-                    if(confirmar(opcion))
-                    {
-                        ingresarDinero(opcion);
-                        actualizarIngredientes(&ingrediente, opcion);
-                    }
-                    else
-                        break;
-                }
-                break;
-            case 'C':
-                if(haystock(ingrediente,opcion))
-                {
-                    if(confirmar(opcion))
-                    {
-                        ingresarDinero(opcion);
-                        actualizarIngredientes(&ingrediente, opcion);
-                    }
-                    else
-                        break;
-                }
-                break;
-            case 'D':
-                if(haystock(ingrediente,opcion))
-                {
-                    if(confirmar(opcion))
-                    {
-                        ingresarDinero(opcion);
-                        actualizarIngredientes(&ingrediente, opcion);
-                    }
-                    else
-                        break;
-                }
-                break;
-            case 'E':
-                if(haystock(ingrediente,opcion))
-                {
-                    if(confirmar(opcion))
-                    {
-                        ingresarDinero(opcion);
-                        actualizarIngredientes(&ingrediente, opcion);
-                    }
-                    else
-                        break;
-                }
-                break;
-            case 'F':
-                if(haystock(ingrediente,opcion))
-                {
-                    if(confirmar(opcion))
-                    {
-                        ingresarDinero(opcion);
-                        actualizarIngredientes(&ingrediente, opcion);
-                    }
-                    else
-                        break;
-                }
-                break;
-            case '*':
-                cargarIngredientes(&ingrediente);
-            }
+            continue;
         }
 
+        estadoIngredientes = verificarIngredientes(ingrediente);
 
+        if(estadoIngredientes == 0)
+        {
+            printf("No hay suficientes ingredientes para hacer ningun cafe.\n");
+            continue;
+        }
 
+        switch(opcion)
+        {
+        case 'A':
+            if(haystock(ingrediente,opcion))
+            {
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                printf("No hay suficientes ingredientes para este cafe.\n");
+            }
+            break;
+        case 'B':
+            if(haystock(ingrediente,opcion))
+            {
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                printf("No hay suficientes ingredientes para este cafe.\n");
+            }
+            break;
+        case 'C':
+            if(haystock(ingrediente,opcion))
+            {
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                printf("No hay suficientes ingredientes para este cafe.\n");
+            }
+            break;
+        case 'D':
+            if(haystock(ingrediente,opcion))
+            {
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                printf("No hay suficientes ingredientes para este cafe.\n");
+            }
+            break;
+        case 'E':
+            if(haystock(ingrediente,opcion))
+            {
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                printf("No hay suficientes ingredientes para este cafe.\n");
+            }
+            break;
+        case 'F':
+            if(haystock(ingrediente,opcion))
+            {
+                if(confirmar(opcion))
+                {
+                    ingresarDinero(opcion);
+                    actualizarIngredientes(&ingrediente, opcion);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                printf("No hay suficientes ingredientes para este cafe.\n");
+            }
+            break;
+        }
 
+    } while(1);
 
-    }
-    while(estadoIngredientes == 1);
     printf("La maquina entra en modo reposo por falta de stock");
 }
