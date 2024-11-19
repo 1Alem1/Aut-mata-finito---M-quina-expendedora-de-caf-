@@ -7,6 +7,7 @@ char menu(ing *I)
     do
     {
         system("pause");
+        system("cls");
         printf("\nINGRESE OPCION\n"
                "\nA-Cafe cortado\n"
                "\nB-Cafe con leche"
@@ -180,7 +181,7 @@ int haystock(ing I,char op)
             return 0;
         break;
     case 'E':
-        if(I.agua>1&&I.cafe>2&&I.leche>2)
+        if(I.agua>=1&&I.cafe>=2&&I.leche>=2)
         {
             return 1;
         }
@@ -188,7 +189,7 @@ int haystock(ing I,char op)
             return 0;
         break;
     case 'F':
-        if(I.agua>2&&I.cafe>1)
+        if(I.agua>=2&&I.cafe>=1)
         {
             return 1;
         }
@@ -247,31 +248,13 @@ int confirmar(char op)
         return 0;
 }
 
-int verificarIngredientes(ing I)
-{
-    int estado;
+int verificarIngredientes(ing I) {
 
-    if(haystock(I,'A'))
-    {
-
-        if(haystock(I,'B'))
-        {
-            if(haystock(I,'C'))
-            {
-                if(haystock(I,'D'))
-                {
-                    if(haystock(I,'E'))
-                    {
-                        if(haystock(I,'F'))
-                        {
-                            estado=0;
-                        }
-                    }
-                }
-            }
-        }
+    if (haystock(I, 'A') || haystock(I, 'B') || haystock(I, 'C') ||
+        haystock(I, 'D') || haystock(I, 'E') || haystock(I, 'F')) {
+        return 1;
     }
-
+    return 0;
 }
 
 int ingresarDinero(char op)
@@ -314,10 +297,15 @@ int ingresarDinero(char op)
         if (totalIngresado > precio)
         {
             printf("Gracias! Su cambio es $%d.\n", totalIngresado - precio);
+            printf("\nCAFE ENTREGADO...");
+                    system("pause");
         }
         else
         {
             printf("Gracias por su compra!\n");
+            printf("\nCAFE ENTREGADO...");
+            system("pause");
+
         }
     }
     else

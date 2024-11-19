@@ -8,7 +8,7 @@
 void main()
 {
     ing ingrediente;
-    int estadoIngredientes;
+    int estadoIngredientes=1;
     inicializarmaquina(&ingrediente);
     char opcion;
 

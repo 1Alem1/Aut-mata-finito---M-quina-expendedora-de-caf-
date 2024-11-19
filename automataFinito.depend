@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1731710003 source:c:\users\alema\onedrive\escritorio\automatafinito\main.c
+1731710849 source:c:\users\alema\onedrive\escritorio\automatafinito\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -9,7 +9,7 @@
 
 1731606378 c:\users\alema\onedrive\escritorio\automatafinito\registros.h
 
-1731710079 c:\users\alema\onedrive\escritorio\automatafinito\funciones.h
+1731710901 c:\users\alema\onedrive\escritorio\automatafinito\funciones.h
 
 1731615047 source:c:\users\matias\desktop\nueva carpeta (2)\automatafinito_maquinaexpendedoracafe\main.c
 	<stdio.h>
@@ -22,4 +22,16 @@
 1731614038 c:\users\matias\desktop\nueva carpeta (2)\automatafinito_maquinaexpendedoracafe\registros.h
 
 1731614981 c:\users\matias\desktop\nueva carpeta (2)\automatafinito_maquinaexpendedoracafe\funciones.h
+
+1732051137 source:c:\users\matias\desktop\holaas\automatafinito\automatafinito\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"registros.h"
+	"funciones.h"
+
+1731606378 c:\users\matias\desktop\holaas\automatafinito\automatafinito\registros.h
+
+1732051610 c:\users\matias\desktop\holaas\automatafinito\automatafinito\funciones.h
 
